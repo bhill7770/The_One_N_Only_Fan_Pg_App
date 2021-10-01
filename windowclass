@@ -1,0 +1,634 @@
+
+package android.view;
+
+import android.annotation.NonNull;
+import android.annotation.Nullable;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.TypedArray;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.media.session.MediaController;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.transition.Scene;
+import android.transition.Transition;
+import android.transition.TransitionManager;
+import android.view.SurfaceHolder.Callback2;
+import android.view.WindowManager.LayoutParams;
+import android.view.accessibility.AccessibilityEvent;
+import java.util.List;
+
+public abstract class Window {
+    public static final int DECOR_CAPTION_SHADE_AUTO = 0;
+    public static final int DECOR_CAPTION_SHADE_DARK = 2;
+    public static final int DECOR_CAPTION_SHADE_LIGHT = 1;
+    /** @deprecated */
+    @Deprecated
+    protected static final int DEFAULT_FEATURES = 65;
+    public static final int FEATURE_ACTION_BAR = 8;
+    public static final int FEATURE_ACTION_BAR_OVERLAY = 9;
+    public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
+    public static final int FEATURE_ACTIVITY_TRANSITIONS = 13;
+    public static final int FEATURE_CONTENT_TRANSITIONS = 12;
+    public static final int FEATURE_CONTEXT_MENU = 6;
+    public static final int FEATURE_CUSTOM_TITLE = 7;
+    /** @deprecated */
+    @Deprecated
+    public static final int FEATURE_INDETERMINATE_PROGRESS = 5;
+    public static final int FEATURE_LEFT_ICON = 3;
+    public static final int FEATURE_NO_TITLE = 1;
+    public static final int FEATURE_OPTIONS_PANEL = 0;
+    /** @deprecated */
+    @Deprecated
+    public static final int FEATURE_PROGRESS = 2;
+    public static final int FEATURE_RIGHT_ICON = 4;
+    /** @deprecated */
+    @Deprecated
+    public static final int FEATURE_SWIPE_TO_DISMISS = 11;
+    public static final int ID_ANDROID_CONTENT = 16908290;
+    public static final String NAVIGATION_BAR_BACKGROUND_TRANSITION_NAME = "android:navigation:background";
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_END = 10000;
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_INDETERMINATE_OFF = -4;
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_INDETERMINATE_ON = -3;
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_SECONDARY_END = 30000;
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_SECONDARY_START = 20000;
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_START = 0;
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_VISIBILITY_OFF = -2;
+    /** @deprecated */
+    @Deprecated
+    public static final int PROGRESS_VISIBILITY_ON = -1;
+    public static final String STATUS_BAR_BACKGROUND_TRANSITION_NAME = "android:status:background";
+
+    public Window(Context context) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final Context getContext() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final TypedArray getWindowStyle() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setContainer(Window container) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final Window getContainer() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final boolean hasChildren() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setWindowManager(WindowManager wm, IBinder appToken, String appName) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setWindowManager(WindowManager wm, IBinder appToken, String appName, boolean hardwareAccelerated) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public WindowManager getWindowManager() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setCallback(Window.Callback callback) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final Window.Callback getCallback() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final void addOnFrameMetricsAvailableListener(@NonNull Window.OnFrameMetricsAvailableListener listener, Handler handler) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final void removeOnFrameMetricsAvailableListener(Window.OnFrameMetricsAvailableListener listener) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final void setRestrictedCaptionAreaListener(Window.OnRestrictedCaptionAreaChangedListener listener) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final void setHideOverlayWindows(boolean hide) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract void takeSurface(Callback2 var1);
+
+    public abstract void takeInputQueue(android.view.InputQueue.Callback var1);
+
+    public abstract boolean isFloating();
+
+    public void setLayout(int width, int height) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setGravity(int gravity) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setType(int type) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setFormat(int format) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setWindowAnimations(int resId) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSoftInputMode(int mode) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void addFlags(int flags) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void clearFlags(int flags) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setFlags(int flags, int mask) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setColorMode(int colorMode) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setPreferMinimalPostProcessing(boolean isPreferred) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int getColorMode() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean isWideColorGamut() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setDimAmount(float amount) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setDecorFitsSystemWindows(boolean decorFitsSystemWindows) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setAttributes(LayoutParams a) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final LayoutParams getAttributes() {
+        throw new RuntimeException("Stub!");
+    }
+
+    protected final int getForcedWindowFlags() {
+        throw new RuntimeException("Stub!");
+    }
+
+    protected final boolean hasSoftInputMode() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSustainedPerformanceMode(boolean enable) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean requestFeature(int featureId) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final void makeActive() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final boolean isActive() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public <T extends View> T findViewById(int id) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @NonNull
+    public final <T extends View> T requireViewById(int id) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract void setContentView(int var1);
+
+    public abstract void setContentView(View var1);
+
+    public abstract void setContentView(View var1, android.view.ViewGroup.LayoutParams var2);
+
+    public abstract void addContentView(View var1, android.view.ViewGroup.LayoutParams var2);
+
+    @Nullable
+    public abstract View getCurrentFocus();
+
+    @NonNull
+    public abstract LayoutInflater getLayoutInflater();
+
+    public abstract void setTitle(CharSequence var1);
+
+    /** @deprecated */
+    @Deprecated
+    public abstract void setTitleColor(int var1);
+
+    public abstract void openPanel(int var1, KeyEvent var2);
+
+    public abstract void closePanel(int var1);
+
+    public abstract void togglePanel(int var1, KeyEvent var2);
+
+    public abstract void invalidatePanelMenu(int var1);
+
+    public abstract boolean performPanelShortcut(int var1, int var2, KeyEvent var3, int var4);
+
+    public abstract boolean performPanelIdentifierAction(int var1, int var2, int var3);
+
+    public abstract void closeAllPanels();
+
+    public abstract boolean performContextMenuIdentifierAction(int var1, int var2);
+
+    public abstract void onConfigurationChanged(Configuration var1);
+
+    public void setElevation(float elevation) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setClipToOutline(boolean clipToOutline) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setBackgroundDrawableResource(int resId) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract void setBackgroundDrawable(Drawable var1);
+
+    public void setBackgroundBlurRadius(int blurRadius) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract void setFeatureDrawableResource(int var1, int var2);
+
+    public abstract void setFeatureDrawableUri(int var1, Uri var2);
+
+    public abstract void setFeatureDrawable(int var1, Drawable var2);
+
+    public abstract void setFeatureDrawableAlpha(int var1, int var2);
+
+    public abstract void setFeatureInt(int var1, int var2);
+
+    public abstract void takeKeyEvents(boolean var1);
+
+    public abstract boolean superDispatchKeyEvent(KeyEvent var1);
+
+    public abstract boolean superDispatchKeyShortcutEvent(KeyEvent var1);
+
+    public abstract boolean superDispatchTouchEvent(MotionEvent var1);
+
+    public abstract boolean superDispatchTrackballEvent(MotionEvent var1);
+
+    public abstract boolean superDispatchGenericMotionEvent(MotionEvent var1);
+
+    @NonNull
+    public abstract View getDecorView();
+
+    public abstract View peekDecorView();
+
+    public abstract Bundle saveHierarchyState();
+
+    public abstract void restoreHierarchyState(Bundle var1);
+
+    protected abstract void onActive();
+
+    protected final int getFeatures() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static int getDefaultFeatures(Context context) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean hasFeature(int feature) {
+        throw new RuntimeException("Stub!");
+    }
+
+    protected final int getLocalFeatures() {
+        throw new RuntimeException("Stub!");
+    }
+
+    protected void setDefaultWindowFormat(int format) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract void setChildDrawable(int var1, Drawable var2);
+
+    public abstract void setChildInt(int var1, int var2);
+
+    public abstract boolean isShortcutKey(int var1, KeyEvent var2);
+
+    public abstract void setVolumeControlStream(int var1);
+
+    public abstract int getVolumeControlStream();
+
+    public void setMediaController(MediaController controller) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public MediaController getMediaController() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setUiOptions(int uiOptions) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setUiOptions(int uiOptions, int mask) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setIcon(int resId) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setLogo(int resId) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setLocalFocus(boolean hasFocus, boolean inTouchMode) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void injectInputEvent(InputEvent event) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public TransitionManager getTransitionManager() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setTransitionManager(TransitionManager tm) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Scene getContentScene() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setEnterTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setReturnTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setExitTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setReenterTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getEnterTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getReturnTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getExitTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getReenterTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSharedElementEnterTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSharedElementReturnTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getSharedElementEnterTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getSharedElementReturnTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSharedElementExitTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSharedElementReenterTransition(Transition transition) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getSharedElementExitTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Transition getSharedElementReenterTransition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setAllowEnterTransitionOverlap(boolean allow) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean getAllowEnterTransitionOverlap() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setAllowReturnTransitionOverlap(boolean allow) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean getAllowReturnTransitionOverlap() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public long getTransitionBackgroundFadeDuration() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setTransitionBackgroundFadeDuration(long fadeDurationMillis) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean getSharedElementsUseOverlay() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSharedElementsUseOverlay(boolean sharedElementsUseOverlay) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract int getStatusBarColor();
+
+    public abstract void setStatusBarColor(int var1);
+
+    public abstract int getNavigationBarColor();
+
+    public abstract void setNavigationBarColor(int var1);
+
+    public void setNavigationBarDividerColor(int dividerColor) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int getNavigationBarDividerColor() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setStatusBarContrastEnforced(boolean ensureContrast) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean isStatusBarContrastEnforced() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setNavigationBarContrastEnforced(boolean enforceContrast) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean isNavigationBarContrastEnforced() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setSystemGestureExclusionRects(@NonNull List<Rect> rects) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @NonNull
+    public List<Rect> getSystemGestureExclusionRects() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void registerScrollCaptureCallback(@NonNull ScrollCaptureCallback callback) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void unregisterScrollCaptureCallback(@NonNull ScrollCaptureCallback callback) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract void setDecorCaptionShade(int var1);
+
+    public abstract void setResizingCaptionDrawable(Drawable var1);
+
+    @Nullable
+    public WindowInsetsController getInsetsController() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Nullable
+    public AttachedSurfaceControl getRootSurfaceControl() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public interface OnRestrictedCaptionAreaChangedListener {
+        void onRestrictedCaptionAreaChanged(Rect var1);
+    }
+
+    public interface OnFrameMetricsAvailableListener {
+        void onFrameMetricsAvailable(Window var1, FrameMetrics var2, int var3);
+    }
+
+    public interface Callback {
+        boolean dispatchKeyEvent(KeyEvent var1);
+
+        boolean dispatchKeyShortcutEvent(KeyEvent var1);
+
+        boolean dispatchTouchEvent(MotionEvent var1);
+
+        boolean dispatchTrackballEvent(MotionEvent var1);
+
+        boolean dispatchGenericMotionEvent(MotionEvent var1);
+
+        boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent var1);
+
+        @Nullable
+        View onCreatePanelView(int var1);
+
+        boolean onCreatePanelMenu(int var1, @NonNull Menu var2);
+
+        boolean onPreparePanel(int var1, @Nullable View var2, @NonNull Menu var3);
+
+        boolean onMenuOpened(int var1, @NonNull Menu var2);
+
+        boolean onMenuItemSelected(int var1, @NonNull MenuItem var2);
+
+        void onWindowAttributesChanged(LayoutParams var1);
+
+        void onContentChanged();
+
+        void onWindowFocusChanged(boolean var1);
+
+        void onAttachedToWindow();
+
+        void onDetachedFromWindow();
+
+        void onPanelClosed(int var1, @NonNull Menu var2);
+
+        boolean onSearchRequested();
+
+        boolean onSearchRequested(SearchEvent var1);
+
+        @Nullable
+        ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback var1);
+
+        @Nullable
+        ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback var1, int var2);
+
+        void onActionModeStarted(ActionMode var1);
+
+        void onActionModeFinished(ActionMode var1);
+
+        default void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> data, @Nullable Menu menu, int deviceId) {
+            throw new RuntimeException("Stub!");
+        }
+
+        default void onPointerCaptureChanged(boolean hasCapture) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+}
