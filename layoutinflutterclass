@@ -1,0 +1,103 @@
+package android.view;
+
+import android.annotation.NonNull;
+import android.annotation.Nullable;
+import android.content.Context;
+import android.util.AttributeSet;
+import org.xmlpull.v1.XmlPullParser;
+
+public abstract class LayoutInflater {
+    protected LayoutInflater(Context context) {
+        throw new RuntimeException("Stub!");
+    }
+
+    protected LayoutInflater(LayoutInflater original, Context newContext) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static LayoutInflater from(Context context) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract LayoutInflater cloneInContext(Context var1);
+
+    public Context getContext() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final LayoutInflater.Factory getFactory() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final LayoutInflater.Factory2 getFactory2() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setFactory(LayoutInflater.Factory factory) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setFactory2(LayoutInflater.Factory2 factory) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public LayoutInflater.Filter getFilter() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setFilter(LayoutInflater.Filter filter) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public View inflate(int resource, @Nullable ViewGroup root) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public View inflate(XmlPullParser parser, @Nullable ViewGroup root) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public View inflate(int resource, @Nullable ViewGroup root, boolean attachToRoot) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public View inflate(XmlPullParser parser, @Nullable ViewGroup root, boolean attachToRoot) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final View createView(String name, String prefix, AttributeSet attrs) throws ClassNotFoundException, InflateException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Nullable
+    public final View createView(@NonNull Context viewContext, @NonNull String name, @Nullable String prefix, @Nullable AttributeSet attrs) throws ClassNotFoundException, InflateException {
+        throw new RuntimeException("Stub!");
+    }
+
+    protected View onCreateView(String name, AttributeSet attrs) throws ClassNotFoundException {
+        throw new RuntimeException("Stub!");
+    }
+
+    protected View onCreateView(View parent, String name, AttributeSet attrs) throws ClassNotFoundException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Nullable
+    public View onCreateView(@NonNull Context viewContext, @Nullable View parent, @NonNull String name, @Nullable AttributeSet attrs) throws ClassNotFoundException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public interface Filter {
+        boolean onLoadClass(Class var1);
+    }
+
+    public interface Factory2 extends LayoutInflater.Factory {
+        @Nullable
+        View onCreateView(@Nullable View var1, @NonNull String var2, @NonNull Context var3, @NonNull AttributeSet var4);
+    }
+
+    public interface Factory {
+        @Nullable
+        View onCreateView(@NonNull String var1, @NonNull Context var2, @NonNull AttributeSet var3);
+    }
+}
